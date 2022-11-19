@@ -8,6 +8,7 @@ resource "aws_sagemaker_image" "custom" {
 ## ECR-REPOSITORY
 resource "aws_ecr_repository" "custom" {
   name = "smstudio-${var.image_name}"
+  image_tag_mutability = "IMMUTABLE"
 
   image_scanning_configuration {
      scan_on_push = true
