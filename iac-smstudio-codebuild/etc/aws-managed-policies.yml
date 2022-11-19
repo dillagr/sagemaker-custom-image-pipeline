@@ -1,0 +1,30 @@
+---
+CODEBUILD:
+  CodeCommit:
+    definition: "AWSCodeCommitPowerUser"
+    help: "For checkout of CodeCommit repositories.."
+  SageMaker:
+    definition: "AmazonSageMakerFullAccess"
+    help: "Full access to AWS SageMaker.."
+  GetAuthorizationToken:
+    definition: "AmazonEC2ContainerRegistryFullAccess"
+    help: "Allows the role to GetAuthorizationToken"
+
+CODEPIPELINE:
+  CodeCommit:
+    definition: "AWSCodeCommitPowerUser"
+    help: "For checkout of CodeCommit repositories.."
+
+SAGEMAKER:
+  S3:
+    definition: "AmazonS3FullAccess"
+    help: "Full access to AWS S3 resources.."
+  SageMaker:
+    definition: "AmazonSageMakerFullAccess"
+    help: "Full access to AWS SageMaker.."
+  SageMakerCanvas:
+    definition: "AmazonSageMakerCanvasFullAccess"
+    help: "Full access to AWS SageMaker Canvas.."
+  Lambda:
+    definition: "AmazonLambdaFullAccess"
+    help: "Full access to AWS Lambda.."

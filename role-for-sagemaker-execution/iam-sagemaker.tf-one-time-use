@@ -1,0 +1,47 @@
+
+#------ SAGEMAKER-EXEC-ROLE----------------------------------------------
+# aws_iam_role.sagemaker:
+resource "aws_iam_role" "sagemaker" {
+  assume_role_policy = jsonencode(
+    {
+      Statement = [
+        {
+          Action = "sts:AssumeRole"
+          Effect = "Allow"
+          Principal = {
+            Service = "sagemaker.amazonaws.com"
+          }
+        },
+      ]
+      Version = "2012-10-17"
+    }
+  )
+
+  description          = "Role for SageMaker Execution"
+  max_session_duration = 14400
+  name                 = "role-for-sagemaker-execution"
+
+}
+
+
+#------ SAGEMAKER-STUDIO ------------------------------------------------
+locals {
+  sagemaker_vars = yamldecode(file("etc/aws-managed-policies.yml"))["SAGEMAKER"]
+}
+
+## SageMakerFullAccess, etc
+resource "aws_iam_role_policy_attachment" "sagemaker" {
+  for_each   = local.sagemaker_vars
+  role       = aws_iam_role.sagemaker.id
+  policy_arn = "arn:aws:iam::aws:policy/${each.value.definition}"
+}
+
+
+
+
+#------ OUTPUTS ----------------------------------------------
+## Role
+output "sagemaker_role" {
+  value = aws_iam_role.sagemaker
+}
+

@@ -1,0 +1,15 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["codebuild:*"],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["codecommit:*"],
+      "Resource": "arn:aws:ecr:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:repository/smstudio-${TEMPLATE_IMAGE_NAME}"
+    }
+  ]
+}

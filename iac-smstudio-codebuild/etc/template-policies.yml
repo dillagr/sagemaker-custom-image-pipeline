@@ -1,0 +1,27 @@
+---
+CODEBUILD:
+  smstudio-codebuild:
+    source-file:
+      - filename: "codebuild-policy.json"
+  smstudio-custom:
+    source-file:
+      - filename: "smstudio-policy.json"
+  smstudio-codebuild-vpc:
+    source-file:
+      - filename: "codebuild-vpc-policy.json"
+  codebuild-cloudwatch:
+    source-file:
+      - filename: "cloudwatch-policy.json"
+
+CODEPIPELINE:
+  smstudio-codepipeline:
+    source-file:
+      - filename: "codepipeline-policy.json"
+  codepipeline-cloudwatch:
+    source-file:
+      - filename: "cloudwatch-policy.json"
+
+SAGEMAKER:
+  smstudio-default:
+    source-file:
+      - filename: "smstudio-default.json"

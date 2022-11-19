@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:logs:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:log-group:/aws/codecommit/smstudio",
+        "arn:aws:logs:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:log-group:/aws/codecommit/smstudio:*"
+      ],
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
+    }
+  ]
+}

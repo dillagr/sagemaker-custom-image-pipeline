@@ -1,0 +1,18 @@
+---
+ENVIRONMENT:
+  DOMAIN_ID:
+    definition: "d-abcdefghijkl"
+    type: "PLAINTEXT"
+    help: "SageMaker Studio Domain ID"
+  IMAGE_NAME:
+    definition: "smstudio-tf25"
+    type: "PLAINTEXT"
+    help: "Same as Image Name"
+  ACCOUNT_ID:
+    definition: "123456789011"
+    type: "PLAINTEXT"
+    help: "AWS Account ID"
+  REGION:
+    definition: "us-east-2"
+    type: "PLAINTEXT"
+    help: "AWS Region"

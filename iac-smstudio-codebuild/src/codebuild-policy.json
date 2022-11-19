@@ -1,0 +1,82 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:UpdateDomain",
+        "sagemaker:UpdateDomain",
+        "sagemaker:CreateImage",
+        "sagemaker:CreateImageVersion",
+        "sagemaker:UpdateImage",
+        "sagemaker:UpdateAppImageConfig",
+        "sagemaker:DeleteImage",
+        "sagemaker:DeleteImageVersion",
+        "sagemaker:CreateAppImageConfig",
+        "sagemaker:DeleteAppImageConfig"
+      ],
+      "Resource": "arn:aws:sagemaker:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:domain/d-*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:PutLogEvents",
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["ecr:*"],
+      "Resource": "arn:aws:ecr:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:repository/${TEMPLATE_IMAGE_NAME}"
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:logs:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:log-group:/aws/codebuild/${TEMPLATE_IMAGE_NAME}",
+        "arn:aws:logs:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:log-group:/aws/codebuild/${TEMPLATE_IMAGE_NAME}:*"
+      ],
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::codepipeline-${TEMPLATE_AWS_REGION}-*"],
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:GetBucketAcl",
+        "s3:GetBucketLocation"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:codecommit:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:${TEMPLATE_IMAGE_NAME}"
+      ],
+      "Action": ["codecommit:GitPull"]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codebuild:CreateReportGroup",
+        "codebuild:CreateReport",
+        "codebuild:UpdateReport",
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
+      ],
+      "Resource": [
+        "arn:aws:codebuild:${TEMPLATE_AWS_REGION}:${TEMPLATE_AWS_ACCOUNTID}:report-group/${TEMPLATE_IMAGE_NAME}-*"
+      ]
+    }
+  ]
+}

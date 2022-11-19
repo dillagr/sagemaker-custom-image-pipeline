@@ -1,0 +1,5 @@
+## this is important as it will be the name of the
+## * ECR private repository
+## * Custom Kernel Image Name
+## * lowercase only
+#image_name = "tf25" 
