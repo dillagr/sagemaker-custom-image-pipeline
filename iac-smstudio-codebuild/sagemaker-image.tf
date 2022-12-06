@@ -16,6 +16,43 @@ resource "aws_ecr_repository" "custom" {
 }
 
 
+## ECR LIFECYCLE
+resource "aws_ecr_lifecycle_policy" "custom" {
+  policy = jsonencode(
+    {
+      rules = [
+        {
+          action = {
+            type = "expire"
+          }
+          description  = "Expire untagged images"
+          rulePriority = 1
+          selection = {
+            countNumber = 7
+            countType   = "sinceImagePushed"
+            countUnit   = "days"
+            tagStatus   = "untagged"
+          }
+        },
+        {
+          action = {
+            type = "expire"
+          }
+          description  = "Expire after count reached"
+          rulePriority = 2
+          selection = {
+            countNumber = 25
+            countType   = "imageCountMoreThan"
+            tagStatus   = "any"
+          }
+        },
+      ]
+    }
+  )
+  repository = aws_ecr_repository.custom.name
+}
+
+
 ## Sagemaker-Image
 output "sagemaker_image" {
   value = aws_sagemaker_image.custom
