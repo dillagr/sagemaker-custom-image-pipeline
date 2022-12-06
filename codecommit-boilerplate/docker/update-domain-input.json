@@ -1,0 +1,13 @@
+{
+  "DomainId": "d-torflao6l6hp",
+  "DefaultUserSettings": {
+    "KernelGatewayAppSettings": {
+      "CustomImages": [
+        {
+          "ImageName": "smstudio-gtc",
+          "AppImageConfigName": "config-gtc"
+        }
+      ]
+    }
+  }
+}
