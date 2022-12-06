@@ -1,0 +1,16 @@
+{
+  "AppImageConfigName": "config-gtc",
+  "KernelGatewayImageConfig": {
+    "KernelSpecs": [
+      {
+        "Name": "python3",
+        "DisplayName": "MiniConda3:latest"
+      }
+    ],
+    "FileSystemConfig": {
+      "MountPath": "/root",
+      "DefaultUid": 0,
+      "DefaultGid": 0
+    }
+  }
+}
