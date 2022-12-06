@@ -1,18 +1,26 @@
 ---
 ENVIRONMENT:
   DOMAIN_ID:
-    definition: "d-abcdefghijkl"
+    definition: "d-torflao6l6hp"
     type: "PLAINTEXT"
     help: "SageMaker Studio Domain ID"
   IMAGE_NAME:
-    definition: "smstudio-tf25"
+    definition: "smstudio-gtc"
     type: "PLAINTEXT"
-    help: "Same as Image Name"
+    help: |
+      "Note the suffix (naming convention). 
+      Should match the input for image_name at runtime."
   ACCOUNT_ID:
-    definition: "123456789011"
+    definition: "698085094823"
     type: "PLAINTEXT"
     help: "AWS Account ID"
   REGION:
     definition: "us-east-2"
     type: "PLAINTEXT"
-    help: "AWS Region"
+    help: "AWS Region, should match the region where the SageMaker domain is located."
+  IMAGE_CONFIG:
+    definition: "config-gtc"
+    type: "PLAINTEXT"
+    help: |
+      "Note the suffix (naming convention). 
+      Should match the input for image_name at runtime."
