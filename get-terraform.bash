@@ -54,7 +54,7 @@ download_latest_release() {
 # Usage: extract_terraform
 extract_download_zipfile() {
 
-    { if [ -n ${LATEST} ] ; then exit 42; fi } 
+    { if [ -z ${LATEST} ] ; then exit 42; fi } 
 
     download_latest_release
 
