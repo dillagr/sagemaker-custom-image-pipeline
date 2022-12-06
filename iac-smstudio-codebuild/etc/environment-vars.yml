@@ -11,7 +11,7 @@ ENVIRONMENT:
       "Note the suffix (naming convention). 
       Should match the input for image_name at runtime."
   ACCOUNT_ID:
-    definition: "698085094823"
+    definition: "12345678901234"
     type: "PLAINTEXT"
     help: "AWS Account ID"
   REGION:
