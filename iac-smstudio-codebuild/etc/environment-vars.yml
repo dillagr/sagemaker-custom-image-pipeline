@@ -1,7 +1,7 @@
 ---
 ENVIRONMENT:
   DOMAIN_ID:
-    definition: "d-torflao6l6hp"
+    definition: "d-abcdefghijkl"
     type: "PLAINTEXT"
     help: "SageMaker Studio Domain ID"
   IMAGE_NAME:
