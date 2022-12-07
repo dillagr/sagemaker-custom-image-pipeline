@@ -10,8 +10,7 @@ if [ -z "${1}" ] ; then
     exit 99
 # check arguments, IMAGE_NAME 
 elif [ -z "${2}" ] ; then
-    echo "Missing TAG_NAME"
-    exit 99
+    tag=${CODEBUILD_START_TIME}
 # check arguments, IMAGE_CONFIG 
 elif [ -z "${IMAGE_CONFIG}" ] ; then
     echo "Missing IMAGE_CONFIG from Environment"
